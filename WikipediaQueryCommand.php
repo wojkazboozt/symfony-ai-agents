@@ -21,12 +21,16 @@ use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-#[AsCommand('app:wikipedia:query', description: 'Test command for querying the Wikipedia.')]
+/**
+ * @author Wojciech Kaźmierczak <wojkaz@boozt.com>
+ */
+#[AsCommand('boozt:finance-ai:query-wikipedia', description: 'Test command for querying the Wikipedia Api')]
 class WikipediaQueryCommand extends Command
 {
     public function __construct(
         private readonly HttpClientInterface $httpClient,
         private readonly LoggerInterface $customLogger,
+        private readonly string $geminiApiKey,
     ) {
         parent::__construct();
     }
@@ -35,9 +39,7 @@ class WikipediaQueryCommand extends Command
     {
         $io->title('Testing Wikipedia API');
 
-        $geminiApiKey = 'replace_me';
-
-        $platform = PlatformFactory::create($geminiApiKey, $this->httpClient);
+        $platform = PlatformFactory::create($this->geminiApiKey, $this->httpClient);
 
         $wikipedia = new Wikipedia($this->httpClient);
         $toolbox = new Toolbox([$wikipedia], logger: $this->customLogger);
@@ -51,12 +53,6 @@ class WikipediaQueryCommand extends Command
         $io->comment('Connecting to model...');
         $messages = new MessageBag(Message::ofUser($userMessage));
         $result = $agent->call($messages);
-
-//        $messages = new MessageBag(
-//            Message::forSystem('You are a pirate and you write funny.'),
-//            Message::ofUser('Are there any implementations for graphql in symfony, or is it just separate technology?'),
-//        );
-//        $result = $platform->invoke('gemini-2.0-flash', $messages);
 
         $io->comment('Displaying result...');
 
