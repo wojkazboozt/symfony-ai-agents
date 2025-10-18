@@ -11,4 +11,6 @@ test symfony-ai platform and agents
       max_redirects: 7
 
  run it with:
- bin/console app:wikipedia:query --profile
+ bin/console boozt:finance-ai:query-wikipedia --profile
+ bin/console boozt:finance-ai:query-postgres --profile
+ bin/console boozt:finance-ai:query-atlasian --profile
