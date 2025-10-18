@@ -35,7 +35,7 @@ class WikipediaQueryCommand extends Command
     {
         $io->title('Testing Wikipedia API');
 
-        $geminiApiKey = 'AIzaSyCTOIMGR2aeoMc9hwmrwqrjV60xDyV1OzI';
+        $geminiApiKey = 'replace_me';
 
         $platform = PlatformFactory::create($geminiApiKey, $this->httpClient);
 
