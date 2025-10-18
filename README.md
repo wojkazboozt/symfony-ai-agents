@@ -22,6 +22,10 @@ test symfony-ai platform and agents
 
 ```shell
  bin/console boozt:finance-ai:query-wikipedia --profile
+"explain SOLID principles"
  bin/console boozt:finance-ai:query-postgres --profile
+"Which movie fits the theme of technology?"
+"Find and list movies from the director who appears as director in more than one movie"
  bin/console boozt:finance-ai:query-atlasian --profile
+"Search Jira issues assigned to user wojkaz@boozt.com"
 ```
