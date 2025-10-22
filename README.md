@@ -6,6 +6,7 @@ test symfony-ai platform and agents
 ```shell
  composer require symfony/ai-platform:dev-main --dev
  composer require symfony/ai-agent:dev-main --dev
+ composer require symfony/ai-store:dev-main --dev
 ```
 ### Setup
 
