@@ -27,6 +27,6 @@ test symfony-ai platform and agents
  bin/console boozt:finance-ai:query-postgres --profile
 "Which movie fits the theme of technology?"
 "Find and list movies from the director who appears as director in more than one movie"
- bin/console boozt:finance-ai:query-atlasian --profile
+ bin/console boozt:finance-ai:query-atlassian --profile
 "Search Jira issues assigned to user wojkaz@boozt.com"
 ```
